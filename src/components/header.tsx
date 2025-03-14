@@ -3,6 +3,8 @@ import Link from 'next/link'
 
 import { Button } from '@/components/ui/button'
 
+import { ThemeToggle } from './theme-toggle'
+
 export function Header() {
   return (
     <header className="flex items-center justify-between border-b border-border/40 px-6 py-3">
@@ -25,10 +27,14 @@ export function Header() {
         </Link>
       </nav>
 
-      <Button size="sm" variant="outline">
-        <LogIn className="size-4" />
-        Log in
-      </Button>
+      <div>
+        <Button size="sm" variant="outline">
+          <LogIn className="size-4" />
+          Log in
+        </Button>
+
+        <ThemeToggle />
+      </div>
     </header>
   )
 }
