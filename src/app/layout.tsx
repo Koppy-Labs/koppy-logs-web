@@ -1,25 +1,24 @@
 import './globals.css'
 
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono as GeistMono } from 'next/font/google'
+import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 
 import { Header } from '@/components/header'
-import { ThemeProvider } from '@/components/ui/theme-provider'
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
 })
 
-const geistMono = GeistMono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
+const neue = localFont({
+  src: './fonts/NeueMontreal-Regular.otf',
+  variable: '--font-neue',
 })
 
 export const metadata: Metadata = {
   title: 'Koppy Logs',
-  description:
-    'The most powerful and intuitive logging solution for FiveM servers',
+  description: 'Modern logging for FiveM servers',
 }
 
 export default function RootLayout({
@@ -29,18 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-        </ThemeProvider>
+      <body className={`${inter.variable} ${neue.variable} antialiased`}>
+        <Header />
+        {children}
       </body>
     </html>
   )
