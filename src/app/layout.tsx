@@ -4,8 +4,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
 
-import { Header } from '@/components/header'
-
 const inter = Inter({
   variable: '--font-inter',
   subsets: ['latin'],
@@ -29,7 +27,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${neue.variable} antialiased`}>
-        <Header />
         {children}
       </body>
     </html>
