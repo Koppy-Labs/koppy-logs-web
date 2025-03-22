@@ -10,6 +10,7 @@ import {
   IconMenu2,
   IconReport,
   IconSearch,
+  IconDownload, 
 } from '@tabler/icons-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -31,6 +32,7 @@ import { NavDocuments } from './nav-documents'
 import { NavMain } from './nav-main'
 import { NavSecondary } from './nav-secoundary'
 import { NavUser } from './nav-user'
+import { DownloadCloudIcon } from 'lucide-react'
 
 const sidebarData = {
   user: {
@@ -72,19 +74,14 @@ const sidebarData = {
 
   documents: [
     {
-      name: 'Data Library',
-      url: '/data-library',
+      name: 'Documentation',
+      url: '/docs',
       icon: IconDatabase,
     },
     {
-      name: 'Reports',
-      url: '/reports',
-      icon: IconReport,
-    },
-    {
-      name: 'Word Assistant',
-      url: '/word-assistant',
-      icon: IconFileWord,
+      name: 'Resource',
+      url: '/',
+      icon: IconDownload,
     },
   ],
 }
