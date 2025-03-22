@@ -32,7 +32,6 @@ import { NavDocuments } from './nav-documents'
 import { NavMain } from './nav-main'
 import { NavSecondary } from './nav-secoundary'
 import { NavUser } from './nav-user'
-import { DownloadCloudIcon } from 'lucide-react'
 
 const sidebarData = {
   user: {
