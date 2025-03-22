@@ -3,6 +3,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
+import { ThemeProvider } from 'next-themes'
 
 const inter = Inter({
   variable: '--font-inter',
@@ -27,7 +28,14 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.variable} ${neue.variable} antialiased`}>
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   )

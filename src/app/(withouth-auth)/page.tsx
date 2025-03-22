@@ -10,11 +10,11 @@ export default function Home() {
       <div className="flex flex-col w-full items-center h-fit rounded-2xl px-12 py-4">
         <div className="flex flex-col items-center pt-40 gap-12 text-center">
           <div className="flex flex-col items-center">
-            <h1 className="text-8xl font-newake font-bold text-stone-900 tracking-wider">
+            <h1 className="text-8xl font-newake font-bold text-stone-900 dark:text-stone-50 tracking-wider">
               Modern logging for <br />
               FiveM servers
             </h1>
-            <p className="mt-4 text-2xl text-gray-600">
+            <p className="mt-4 text-2xl text-gray-600 dark:text-gray-400">
               A powerful, lightweight logging system built specifically for
               FiveM servers with real-time monitoring and advanced analytics.
               Take control of your server's performance today.{' '}
@@ -40,18 +40,18 @@ export default function Home() {
           src="/preview.jpg"
           alt="Hero Image"
           fill
-          className="object-cover rounded-2xl border-2 border-stone-300"
+          className="object-cover rounded-2xl border-2 border-stone-300 dark:border-stone-700"
         />
       </div>
 
       <div className="flex flex-col w-full items-center h-fit rounded-2xl px-12 py-4">
         <div className="flex flex-col items-center pt-40 gap-12 text-center">
           <div className="flex flex-col items-center">
-            <h1 className="text-8xl font-newake font-bold text-stone-900 tracking-wider">
+            <h1 className="text-8xl font-newake font-bold text-stone-900 dark:text-stone-50 tracking-wider">
               From Developers <br />
               for Developers
             </h1>
-            <p className="mt-4 text-2xl text-gray-600">
+            <p className="mt-4 text-2xl text-gray-600 dark:text-gray-400">
               We understand the challenges of server management because we've
               been there. Our tools are designed with real-world FiveM
               development experience in mind.
@@ -59,7 +59,7 @@ export default function Home() {
           </div>
 
           <div className="flex flex-col items-center">
-            <h2 className="text-4xl font-newake font-bold text-stone-900 tracking-wider">
+            <h2 className="text-4xl font-newake font-bold text-stone-900 dark:text-stone-50 tracking-wider">
               Features
             </h2>
           </div>
@@ -69,7 +69,7 @@ export default function Home() {
       <div className="flex flex-col w-full items-center h-fit rounded-2xl px-12 py-4">
         <div className="flex flex-col items-center pt-40 gap-12 text-center">
           <div className="flex flex-col items-center gap-6">
-            <h1 className="text-8xl font-newake font-bold text-stone-900 tracking-wider">
+            <h1 className="text-8xl font-newake font-bold text-stone-900 dark:text-stone-50 tracking-wider">
               Trusted by the Goats
             </h1>
             <div className="flex flex-col items-center gap-2">
@@ -82,7 +82,9 @@ export default function Home() {
                 ))}
               </div>
 
-              <p className="mt-4 text-2xl text-gray-600">+500 servers</p>
+              <p className="mt-4 text-2xl text-gray-600 dark:text-gray-400">
+                +500 servers
+              </p>
             </div>
 
             <Button className="rounded-full h-11 w-52">
