@@ -4,13 +4,11 @@ import {
   IconChartBar,
   IconDashboard,
   IconDatabase,
-  IconFileWord,
+  IconDownload,
   IconHelp,
   IconListDetails,
   IconMenu2,
-  IconReport,
   IconSearch,
-  IconDownload, 
 } from '@tabler/icons-react'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -32,6 +30,7 @@ import { NavDocuments } from './nav-documents'
 import { NavMain } from './nav-main'
 import { NavSecondary } from './nav-secoundary'
 import { NavUser } from './nav-user'
+import { OrganizationSwitcher } from './organization-switcher'
 
 const sidebarData = {
   user: {
@@ -152,6 +151,10 @@ export function AppSidebar({ className, ...props }: AppSidebarProps) {
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+
+      <div className="px-2 py-2">
+        <OrganizationSwitcher />
+      </div>
 
       <SidebarContent>
         <NavMain items={sidebarData.navMain} />
