@@ -7,11 +7,11 @@ export default function AuthLayout({
   children: React.ReactNode
 }) {
   return (
-    <>
+    <div>
       <SidebarProvider>
         <AppSidebar />
         {children}
       </SidebarProvider>
-    </>
+    </div>
   )
 }

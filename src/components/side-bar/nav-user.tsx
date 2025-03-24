@@ -8,6 +8,7 @@ import {
   IconSettings,
   IconUserCircle,
 } from '@tabler/icons-react'
+import { motion } from 'motion/react'
 import { useState } from 'react'
 
 import { UserSettingsModal } from '@/components/settings/user-settings-modal'
@@ -50,22 +51,37 @@ export function NavUser({
         <SidebarMenuItem>
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <SidebarMenuButton
-                size="lg"
-                className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+              <motion.div
+                whileHover={{ scale: 1.02 }}
+                transition={{ duration: 0.2 }}
               >
-                <Avatar className="h-8 w-8 rounded-lg grayscale">
-                  <AvatarImage src={user.avatar} alt={user.name} />
-                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                </Avatar>
-                <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-medium">{user.name}</span>
-                  <span className="text-muted-foreground truncate text-xs">
-                    {user.email}
-                  </span>
-                </div>
-                <IconDotsVertical className="ml-auto size-4" />
-              </SidebarMenuButton>
+                <SidebarMenuButton
+                  size="lg"
+                  className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <Avatar className="h-8 w-8 rounded-lg grayscale">
+                      <AvatarImage src={user.avatar} alt={user.name} />
+                      <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                    </Avatar>
+                  </motion.div>
+                  <div className="grid flex-1 text-left text-sm leading-tight">
+                    <span className="truncate font-medium">{user.name}</span>
+                    <span className="text-muted-foreground truncate text-xs">
+                      {user.email}
+                    </span>
+                  </div>
+                  <motion.div
+                    whileHover={{ rotate: 90 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <IconDotsVertical className="ml-auto size-4" />
+                  </motion.div>
+                </SidebarMenuButton>
+              </motion.div>
             </DropdownMenuTrigger>
             <DropdownMenuContent
               className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
@@ -73,65 +89,95 @@ export function NavUser({
               align="end"
               sideOffset={4}
             >
-              <DropdownMenuLabel className="p-0 font-normal">
-                <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                  <Avatar className="h-8 w-8 rounded-lg">
-                    <AvatarImage src={user.avatar} alt={user.name} />
-                    <AvatarFallback className="rounded-lg">CN</AvatarFallback>
-                  </Avatar>
-                  <div className="grid flex-1 text-left text-sm leading-tight">
-                    <span className="truncate font-medium">{user.name}</span>
-                    <span className="text-muted-foreground truncate text-xs">
-                      {user.email}
-                    </span>
-                  </div>
-                </div>
-              </DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              <DropdownMenuGroup>
-                <DropdownMenuItem
-                  onClick={() => {
-                    setSettingsTabToBeOpen('account')
-                    setSettingsOpen(true)
-                  }}
-                >
-                  <IconUserCircle />
-                  Account
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => {
-                    setSettingsTabToBeOpen('billing')
-                    setSettingsOpen(true)
-                  }}
-                >
-                  <IconCreditCard />
-                  Billing
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => {
-                    setSettingsTabToBeOpen('notifications')
-                    setSettingsOpen(true)
-                  }}
-                >
-                  <IconNotification />
-                  Notifications
-                </DropdownMenuItem>
-              </DropdownMenuGroup>
-              <DropdownMenuItem
-                onClick={() => {
-                  setSettingsTabToBeOpen('settings')
-                  setSettingsOpen(true)
-                }}
+              <motion.div
+                initial={{ opacity: 0, y: -5 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.2 }}
               >
-                <IconSettings />
-                Settings
-              </DropdownMenuItem>
-              <DropdownMenuSeparator />
-
-              <DropdownMenuItem>
-                <IconLogout />
-                Log out
-              </DropdownMenuItem>
+                <DropdownMenuLabel className="p-0 font-normal">
+                  <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                    <Avatar className="h-8 w-8 rounded-lg">
+                      <AvatarImage src={user.avatar} alt={user.name} />
+                      <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                    </Avatar>
+                    <div className="grid flex-1 text-left text-sm leading-tight">
+                      <span className="truncate font-medium">{user.name}</span>
+                      <span className="text-muted-foreground truncate text-xs">
+                        {user.email}
+                      </span>
+                    </div>
+                  </div>
+                </DropdownMenuLabel>
+                <DropdownMenuSeparator />
+                <DropdownMenuGroup>
+                  <motion.div
+                    whileHover={{ x: 2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <DropdownMenuItem
+                      onClick={() => {
+                        setSettingsTabToBeOpen('account')
+                        setSettingsOpen(true)
+                      }}
+                    >
+                      <IconUserCircle />
+                      Account
+                    </DropdownMenuItem>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ x: 2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <DropdownMenuItem
+                      onClick={() => {
+                        setSettingsTabToBeOpen('billing')
+                        setSettingsOpen(true)
+                      }}
+                    >
+                      <IconCreditCard />
+                      Billing
+                    </DropdownMenuItem>
+                  </motion.div>
+                  <motion.div
+                    whileHover={{ x: 2 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <DropdownMenuItem
+                      onClick={() => {
+                        setSettingsTabToBeOpen('notifications')
+                        setSettingsOpen(true)
+                      }}
+                    >
+                      <IconNotification />
+                      Notifications
+                    </DropdownMenuItem>
+                  </motion.div>
+                </DropdownMenuGroup>
+                <motion.div
+                  whileHover={{ x: 2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <DropdownMenuItem
+                    onClick={() => {
+                      setSettingsTabToBeOpen('settings')
+                      setSettingsOpen(true)
+                    }}
+                  >
+                    <IconSettings />
+                    Settings
+                  </DropdownMenuItem>
+                </motion.div>
+                <DropdownMenuSeparator />
+                <motion.div
+                  whileHover={{ x: 2 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <DropdownMenuItem>
+                    <IconLogout />
+                    Log out
+                  </DropdownMenuItem>
+                </motion.div>
+              </motion.div>
             </DropdownMenuContent>
           </DropdownMenu>
         </SidebarMenuItem>

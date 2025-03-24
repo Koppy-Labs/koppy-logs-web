@@ -10,6 +10,7 @@ import {
   IconMenu2,
   IconSearch,
 } from '@tabler/icons-react'
+import { AnimatePresence, motion } from 'motion/react'
 import Image from 'next/image'
 import Link from 'next/link'
 import * as React from 'react'
@@ -112,7 +113,11 @@ export function AppSidebar({ className, ...props }: AppSidebarProps) {
               )}
               title="Go to Dashboard"
             >
-              <div className="flex-shrink-0 items-start justify-start">
+              <motion.div
+                className="flex-shrink-0 items-start justify-start"
+                whileHover={{ scale: 1.05 }}
+                transition={{ duration: 0.2 }}
+              >
                 <Image
                   src="/logo.png"
                   alt="Koppy Logs"
@@ -121,55 +126,100 @@ export function AppSidebar({ className, ...props }: AppSidebarProps) {
                   className={cn('size-6 object-contain dark:invert')}
                   priority
                 />
-              </div>
+              </motion.div>
 
-              <span
-                className={cn(
-                  'text-xl font-semibold shrink-0 tracking-tight transition-all duration-300',
-                  {
-                    'opacity-0 translate-x-2': isCollapsed,
-                    hidden: isCollapsed,
-                  },
+              <AnimatePresence>
+                {!isCollapsed && (
+                  <motion.span
+                    className="text-xl font-semibold shrink-0 tracking-tight"
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    Koppy Logs
+                  </motion.span>
                 )}
-              >
-                Koppy Logs
-              </span>
+              </AnimatePresence>
             </Link>
           </SidebarMenuItem>
         </SidebarMenu>
 
         <SidebarMenu>
           <SidebarMenuItem>
-            <Button
-              onClick={toggleSidebar}
-              variant="ghost"
-              size="icon"
-              aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+            <motion.div
+              whileTap={{ scale: 0.95 }}
+              transition={{ duration: 0.1 }}
             >
-              <IconMenu2 />
-            </Button>
+              <Button
+                onClick={toggleSidebar}
+                variant="ghost"
+                size="icon"
+                aria-label={isCollapsed ? 'Expand sidebar' : 'Collapse sidebar'}
+              >
+                <motion.div
+                  animate={{ rotate: isCollapsed ? 90 : 0 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <IconMenu2 />
+                </motion.div>
+              </Button>
+            </motion.div>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
 
-      <div className="px-2 py-2">
+      <motion.div
+        className="px-2 py-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+      >
         <OrganizationSwitcher />
-      </div>
+      </motion.div>
 
       <SidebarContent>
-        <NavMain items={sidebarData.navMain} />
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.2 }}
+        >
+          <NavMain items={sidebarData.navMain} />
+        </motion.div>
 
-        <div className="my-4 border-t border-stone-200 dark:border-stone-800"></div>
+        <motion.div
+          className="my-4 border-t border-stone-200 dark:border-stone-800"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.3 }}
+        ></motion.div>
 
-        <NavDocuments items={sidebarData.documents} />
+        <motion.div
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.4 }}
+        >
+          <NavDocuments items={sidebarData.documents} />
+        </motion.div>
 
-        <div className="mt-auto pt-4">
+        <motion.div
+          className="mt-auto pt-4"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+        >
           <NavSecondary items={sidebarData.navSecondary} />
-        </div>
+        </motion.div>
       </SidebarContent>
 
       <SidebarFooter className="border-t border-stone-200 dark:border-stone-800 py-2">
-        <NavUser user={sidebarData.user} />
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3, delay: 0.6 }}
+        >
+          <NavUser user={sidebarData.user} />
+        </motion.div>
       </SidebarFooter>
     </Sidebar>
   )
